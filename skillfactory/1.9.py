@@ -43,5 +43,37 @@ print(*counter_moscow.elements())
 # black black black black white white yellow yellow yellow
 
 
+students = [('Ivanov',1),('Smirnov',4),('Petrov',3),('Kuznetsova',1),
+            ('Nikitina',2),('Markov',3),('Pavlov',2)]
+groups = dict()
+ 
+for student, group in students:
+    # Проверяем, есть ли уже эта группа в словаре
+    if group not in groups:
+        # Если группы ещё нет в словаре, создаём для неё пустой список
+        groups[group] = list()
+    groups[group].append(student)
+ 
+print(groups)
+# {1: ['Ivanov', 'Kuznetsova'], 4: ['Smirnov'], 3: ['Petrov', 'Markov'], 2: ['Nikitina', 'Pavlov']}
 
 
+
+from collections import defaultdict
+groups = defaultdict(list)
+for student, group in students:
+    groups[group].append(student)
+ 
+print(groups)
+# defaultdict(<class 'list'>, {1: ['Ivanov', 'Kuznetsova'], 4: ['Smirnov'], 3: ['Petrov', 'Markov'], 2: ['Nikitina', 'Pavlov']})
+dict_object = dict()
+defaultdict_object = defaultdict()
+ 
+print(type(dict_object))
+# <class 'dict'>
+print(type(defaultdict_object))
+# <class 'collections.defaultdict'>
+print(dict_object)
+# {}
+print(defaultdict_object)
+# defaultdict(None, {})
